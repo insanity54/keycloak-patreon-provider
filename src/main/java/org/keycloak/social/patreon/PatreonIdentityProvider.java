@@ -42,9 +42,8 @@ public class PatreonIdentityProvider extends AbstractOAuth2IdentityProvider<Patr
     @Override
     @SneakyThrows
     protected BrokeredIdentityContext extractIdentityFromProfile(EventBuilder event, JsonNode profile) {
-        BrokeredIdentityContext user = new BrokeredIdentityContext(getJsonProperty(profile.path("data"), "id"));
+        BrokeredIdentityContext user = new BrokeredIdentityContext(getJsonProperty(profile.path("data"), "id"), getConfig());
         user.setUsername(getJsonProperty(profile.path("data").path("attributes"), "full_name"));
-        user.setIdpConfig(getConfig());
         user.setIdp(this);
 
         AbstractJsonUserAttributeMapper.storeUserProfileForMapper(user, profile, getConfig().getAlias());

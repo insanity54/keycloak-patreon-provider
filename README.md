@@ -19,6 +19,10 @@ You will get Client ID and Client Secret from the created application.
 Clone this repository and run `mvn package`.
 You can see `keycloak-patreon-provider-<version>.jar` under `target` directory.
 
+## Acknowledgements
+
+Skyterix, the upstream author https://github.com/Skyterix/keycloak-patreon-provider
+
 ## Licence
 
 [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
