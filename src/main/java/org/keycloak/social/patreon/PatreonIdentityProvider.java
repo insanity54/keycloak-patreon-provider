@@ -1,7 +1,6 @@
 package org.keycloak.social.patreon;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import lombok.SneakyThrows;
 import org.jboss.logging.Logger;
 import org.keycloak.broker.oidc.AbstractOAuth2IdentityProvider;
 import org.keycloak.broker.oidc.mappers.AbstractJsonUserAttributeMapper;
@@ -40,7 +39,6 @@ public class PatreonIdentityProvider extends AbstractOAuth2IdentityProvider<Patr
     }
 
     @Override
-    @SneakyThrows
     protected BrokeredIdentityContext extractIdentityFromProfile(EventBuilder event, JsonNode profile) {
         BrokeredIdentityContext user = new BrokeredIdentityContext(getJsonProperty(profile.path("data"), "id"), getConfig());
         user.setUsername(getJsonProperty(profile.path("data").path("attributes"), "full_name"));
