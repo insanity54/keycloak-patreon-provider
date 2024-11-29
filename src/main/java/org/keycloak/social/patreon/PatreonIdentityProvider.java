@@ -18,8 +18,9 @@ public class PatreonIdentityProvider extends AbstractOAuth2IdentityProvider<Patr
 
     public static final String AUTH_URL = "https://www.patreon.com/oauth2/authorize";
     public static final String TOKEN_URL = "https://www.patreon.com/api/oauth2/token";
-    public static final String PROFILE_URL = "https://www.patreon.com/api/oauth2/v2/identity?fields%5Buser%5D=about,created,email,first_name,full_name,image_url,last_name,social_connections,thumb_url,url,vanity";
+    public static final String PROFILE_URL = "https://www.patreon.com/api/oauth2/v2/identity?fields%5Buser%5D=about,created,email,first_name,full_name,image_url,last_name,social_connections,thumb_url,url,vanity&include=memberships,memberships.currently_entitled_tiers,memberships.currently_entitled_tiers.benefits,memberships.campaign";
     public static final String DEFAULT_SCOPE = "identity";
+
 
     public PatreonIdentityProvider(KeycloakSession session, PatreonIdentityProviderConfig config) {
         super(session, config);
